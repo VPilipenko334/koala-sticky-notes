@@ -5,6 +5,7 @@ const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
 
+    //sending a request to our redux store
     const addStickyNote= () => {
 
     }
