@@ -30,12 +30,6 @@ export class UploadPicture extends React.Component {
         fileReader.onloadend = () => {
             this.setState({ pictureFile: file, pictureUrl: fileReader.result, selectForm: 1})
         }
-
-        if (file) {
-            fileReader.readAsDataUrl(file);
-        } else {
-            this.setState({ imageUrl: "", imageFile: null})
-        }
     }
 
     handleSubmit(e) {
@@ -62,10 +56,29 @@ export class UploadPicture extends React.Component {
         return (
                 <div> 
                     {/* <button className="add-picture">Upload a picture</button> */}
-                    <button className="input-file">Select Photo<input type="file" onChange={this.handleFile} id="file"></input></button>
+                    <button className="input-file"><input type="file" onChange={this.handleFile} id="file"></input></button>
+                        <br/>
+                    <button> Upload Picture </button>
+                    {/* <button className="file-upload"><label htmlFor="file">Select Photos</label></button> */}
                 </div>
             )
         }
+
+    if (this.state.selectForm === 1) {
+            return (
+                <div>
+                     <label id="uploading-here">
+                        <input type="file" onChange={this.handleFile} style={{ display: "none" }} />
+                    </label>
+                        {/* <form className="upload-form" onSubmit={this.handleSubmit}> */}
+    
+                             {PreviewPicture}
+                                    <button className="cancel-button-form" onClick={this.handleCancel}>Cancel</button>&nbsp; &nbsp; &nbsp; 
+                                    <button className="file-upload" type="submit">Upload</button>
+                               </div>
+            )
+    }
+    
     }
 }
 

@@ -75,7 +75,7 @@ all-notes-wrapper {
 }
 
 .input-file {
-    background-color: green; 
+    /* background-color: green;  */
     max-width: 100px; 
     max-height: 100px;
     cursor: pointer; 
@@ -97,6 +97,26 @@ all-notes-wrapper {
 }
 .inut-file + label * {
   pointer-events: none;
+}
+
+
+.file-upload {
+    background-color: #0870d1;
+    /* // cursor: pointer;
+    // padding-bottom: 5px;  */
+   width: 153px;
+    height: 48px;
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, FreeSans, Arial, sansserif;
+    color: #fff;
+    font-weight: 700;
+    /* // padding-top: 20px;  */
+    border: none;
+    color: white;
+    border-radius: 100px;
+    /* // font-size: 16px; */
+    /* // margin-top: 0px; */
+    margin-left: 5px;
+    font-size: 16px;
 }
 
 #id {
