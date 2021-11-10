@@ -58,7 +58,7 @@ export class UploadPicture extends React.Component {
                     {/* <button className="add-picture">Upload a picture</button> */}
                     <button className="input-file"><input type="file" onChange={this.handleFile} id="file"></input></button>
                         <br/>
-                    <button> Upload Picture </button>
+                    <button className="add-picture"> Upload Picture </button>
                     {/* <button className="file-upload"><label htmlFor="file">Select Photos</label></button> */}
                 </div>
             )
