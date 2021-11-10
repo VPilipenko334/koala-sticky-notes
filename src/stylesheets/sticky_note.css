@@ -28,8 +28,33 @@
     max-width: 150px;
 }
 
+.add-button {
+    background-color: rgb(137, 210, 91);
+    cursor: pointer; 
+    padding: 5px; 
+    outline: none; 
+    text-decoration: none;
+}
+
+.add-button:hover {
+    background-color: lightseagreen;
+}
+
 .note-textarea {
     background-color: rgb(240, 216, 216);
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 150px; 
+    max-height: 150px;
+}
+
+.delete-button {
+    cursor: pointer;
+    background-color:rgb(218, 44, 44);
+    text-decoration: none;
+}
+
+.delete-button:hover {
+    background-color: lightseagreen;
 }
 
 all-notes-wrapper {

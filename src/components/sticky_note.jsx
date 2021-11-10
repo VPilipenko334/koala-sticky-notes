@@ -10,12 +10,12 @@ const StickyNote = () => {
         <div className="sticky-note-wrapper">
             <form onSubmit={addStickyNote} className="note-form">
                 <textarea className="note-textarea" placeholder="Add text here..."></textarea>
-                <button>+</button>
+                <button className="add-button">+</button>
             </form>
 
             <div className="sticky-note-footer">
                 11/10/11 &nbsp;
-                <button>x</button>
+                <button className="delete-button">x</button>
             </div>
         </div>
     )
