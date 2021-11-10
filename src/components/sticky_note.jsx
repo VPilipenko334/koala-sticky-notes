@@ -9,7 +9,7 @@ import { UploadPicture } from '../components/picture_form';
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
-    const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
     // we have access to stickyNoteState and dispatch action
     
     const initialStickyNoteState = {
@@ -33,8 +33,10 @@ const StickyNote = () => {
         };
 
         //sending this to the redux store with the action we've created
-        dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
+        // dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
     }
+
+
 
     return (
         <div className="sticky-note-wrapper">
@@ -46,8 +48,20 @@ const StickyNote = () => {
                 </textarea>
                 <button className="add-button">+</button>
             </form>
+            <br/>
             < UploadPicture />
+            <br/>
     
+                <div><center className="color-change">
+                 Choose a sticky-note color: 
+                <br/>
+                <button className="color-button" id="blue">Blue</button>
+                <button className="color-button" id="purple">Purple</button>
+                <button className="color-button" id="yellow">Yellow</button>
+                <button className="color-button" id="green">Green</button>
+                </center>
+            </div>
+            <br/>
             <div className="sticky-note-footer">
                 11/10/11 &nbsp; 
                 {/* {stickyNoteState
@@ -58,8 +72,8 @@ const StickyNote = () => {
                     ))
                     } */}
                 <button className="delete-button">x</button>
+                <br/>
             </div>
-          
         </div>
     )
 }
