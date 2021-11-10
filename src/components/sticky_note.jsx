@@ -4,11 +4,12 @@ import { useReducer } from 'react/cjs/react.production.min';
 import '../redux/actions/sticky_note_actions'
 import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
 import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
+import { UploadPicture } from '../components/picture_form';
 
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
-
+    // const dispatch = useDispatch();
     // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
     // we have access to stickyNoteState and dispatch action
     
