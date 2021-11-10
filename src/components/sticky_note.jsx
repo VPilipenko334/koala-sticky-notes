@@ -9,9 +9,14 @@ import { UploadPicture } from '../components/picture_form';
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
-    // const dispatch = useDispatch();
-    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+    const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
     // we have access to stickyNoteState and dispatch action
+    
+    const initialStickyNoteState = {
+    lastStickyNote: null,
+    totalStickyNotes: 0,
+    allStickyNotes: []
+    }
     
     //sending a request to our redux store
         const addStickyNote = (e) => {
@@ -28,7 +33,7 @@ const StickyNote = () => {
         };
 
         //sending this to the redux store with the action we've created
-        // dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
+        dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
     }
 
     return (

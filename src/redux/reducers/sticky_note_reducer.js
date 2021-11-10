@@ -2,13 +2,8 @@ import { ADD_STICKY_NOTE,
         REMOVE_STICKY_NOTE 
 } from "../actions/sticky_note_actions"
 
-export const initialStickyNoteState = {
-    lastStickyNote: null,
-    totalStickyNotes: 0,
-    allStickyNotes: []
-}
 
-export const stickyNoteReducer = (oldState = {} , action) => {
+const stickyNoteReducer = (oldState = {} , action) => {
     Object.freeze(oldState)
 
     // let newState = Object.assign({}, oldState)
@@ -31,5 +26,4 @@ export const stickyNoteReducer = (oldState = {} , action) => {
     }
 }
 
-
-
+export default stickyNoteReducer; 
