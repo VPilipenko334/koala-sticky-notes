@@ -1,15 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 import { useReducer } from 'react/cjs/react.production.min';
+// import { addStickyNote, removeStickyNote } from '../redux/actions/sticky_note_actions';
 import '../redux/actions/sticky_note_actions'
-// import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
-// import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
+import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
+import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
 
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
 
-    const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
     // we have access to stickyNoteState and dispatch action
     
     //sending a request to our redux store
@@ -27,7 +28,7 @@ const StickyNote = () => {
         };
 
         //sending this to the redux store with the action we've created
-        dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
+        // dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
     }
 
     return (
@@ -44,13 +45,13 @@ const StickyNote = () => {
 
             <div className="sticky-note-footer">
                 11/10/11 &nbsp;
-                {stickyNoteState
+                {/* {stickyNoteState
                     .notes.map(note => (
                         <div>
                             {note.text}
                         </div>
                     ))
-                    }
+                    } */}
                 <button className="delete-button">x</button>
             </div>
           

@@ -1,5 +1,5 @@
 import { ADD_STICKY_NOTE,
-        // REMOVE_STICKY_NOTE 
+        REMOVE_STICKY_NOTE 
 } from "../actions/sticky_note_actions"
 
 
@@ -9,7 +9,7 @@ export const initialStickyNoteState = {
     allStickyNotes: []
 }
 
-export const stickyNoteReducer = (oldState , action) => {
+export const stickyNoteReducer = (oldState = {} , action) => {
     Object.freeze(oldState)
 
     // let newState = Object.assign({}, oldState)
@@ -23,10 +23,10 @@ export const stickyNoteReducer = (oldState , action) => {
                
             //adding a new sticky note to the redux store
         }
-        break;
-        // case REMOVE_STICKY_NOTE:
-        //     delete newState[action.stickyNoteid]
-        //     return newState;
+        // break;
+        case REMOVE_STICKY_NOTE:
+            delete newState[action.stickyNoteid]
+            return newState;
         default:
             return newState;
     }
