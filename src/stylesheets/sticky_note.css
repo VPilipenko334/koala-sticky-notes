@@ -29,7 +29,7 @@
 }
 
 .add-button {
-    background-color: rgb(137, 210, 91);
+    background-color: lavender; 
     cursor: pointer; 
     padding: 5px; 
     outline: none; 
@@ -37,7 +37,7 @@
 }
 
 .add-button:hover {
-    background-color: lightseagreen;
+    background-color: purple;
 }
 
 .note-textarea {
@@ -56,7 +56,7 @@
 }
 
 .delete-button:hover {
-    background-color: lightseagreen;
+    background-color: lavender;
 }
 
 all-notes-wrapper {
@@ -66,7 +66,7 @@ all-notes-wrapper {
 }
 
 .add-picture {
-    background-color: lightgreen; 
+    background-color: lavender; 
     border: 10px #642A11;
     border-radius: 20px;  
     cursor: pointer; 
