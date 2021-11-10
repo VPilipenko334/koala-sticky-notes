@@ -3,6 +3,7 @@ import './stylesheets/sticky_note.css'
 import AllNotes from './components/all_notes';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-wrapper">

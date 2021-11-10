@@ -16,6 +16,24 @@
 .sticky-note-footer {
     background-color: rgb(235, 129, 129);
     display: flex; 
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+.note-form {
+    background-color: rgb(235, 129, 129);
+    display: flex; 
+    flex-direction: row; 
+    width: 150px; 
+    max-width: 150px;
+}
+
+.note-textarea {
+    background-color: rgb(240, 216, 216);
+}
+
+all-notes-wrapper {
+    display: grid; 
+    grid-gap: 1rem; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
