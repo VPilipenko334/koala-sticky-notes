@@ -1,0 +1,21 @@
+.sticky-note-wrapper {
+    background-color: rgb(235, 129, 129);
+    margin-bottom: 10px; 
+    /* border: 10px double #642A11; */
+    border: 10px #642A11;
+    border-radius: 20px;
+    padding: 1rem; 
+    min-height: 150px; 
+    max-width: 150px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex; 
+    flex-direction: column;
+}
+
+.sticky-note-footer {
+    background-color: rgb(235, 129, 129);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}

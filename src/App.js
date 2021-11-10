@@ -1,5 +1,6 @@
 import './stylesheets/App.css';
-import AllNotes from './components/AllNotes';
+import './stylesheets/sticky_note.css'
+import AllNotes from './components/all_notes';
 
 function App() {
   return (
