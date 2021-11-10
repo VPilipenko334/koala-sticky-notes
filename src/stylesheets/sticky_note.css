@@ -73,3 +73,32 @@ all-notes-wrapper {
 .add-picture:hover {
     background-color: purple; 
 }
+
+.input-file {
+    background-color: green; 
+    max-width: 100px; 
+    max-height: 100px;
+    cursor: pointer; 
+}
+
+.inut-file {
+  visibility: hidden;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inut-file:focus + label {
+  /* keyboard navigation */
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.inut-file + label * {
+  pointer-events: none;
+}
+
+#id {
+    background-color: yellow;
+}
