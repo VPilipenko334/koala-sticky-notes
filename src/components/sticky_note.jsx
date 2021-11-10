@@ -41,9 +41,8 @@ const StickyNote = () => {
                 </textarea>
                 <button className="add-button">+</button>
             </form>
-            <button className="add-picture">add picture</button>
-
-
+            < UploadPicture />
+    
             <div className="sticky-note-footer">
                 11/10/11 &nbsp; 
                 {/* {stickyNoteState

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UploadPicture extends React.Component {
+export class UploadPicture extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
@@ -61,9 +61,10 @@ class UploadPicture extends React.Component {
     if (this.state.selectForm === 0) {
         return (
                 <div> 
-                    <h3>Upload Photo</h3>
+                    <h3>Hello Friends</h3>
 
                     {/* <button className="input-file">Select Photo<input type="file" onChange={this.handleFile} id="file"></button> */}
+                    {/* <button className="add-picture" onClick={UploadPicture}>add picture</button> */}
                 </div>
             )
         }
