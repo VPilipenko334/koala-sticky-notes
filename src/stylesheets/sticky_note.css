@@ -62,3 +62,14 @@ all-notes-wrapper {
     grid-gap: 1rem; 
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+
+.add-picture {
+    background-color: lightgreen; 
+    border: 10px #642A11;
+    border-radius: 20px;  
+    cursor: pointer; 
+}
+
+.add-picture:hover {
+    background-color: purple; 
+}

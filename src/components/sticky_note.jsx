@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useReducer } from 'react/cjs/react.production.min';
-// import { addStickyNote, removeStickyNote } from '../redux/actions/sticky_note_actions';
 import '../redux/actions/sticky_note_actions'
 import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
 import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
@@ -41,10 +40,11 @@ const StickyNote = () => {
                 </textarea>
                 <button className="add-button">+</button>
             </form>
+            <button className="add-picture">add picture</button>
 
 
             <div className="sticky-note-footer">
-                11/10/11 &nbsp;
+                11/10/11 &nbsp; 
                 {/* {stickyNoteState
                     .notes.map(note => (
                         <div>

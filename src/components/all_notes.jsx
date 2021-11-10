@@ -4,8 +4,8 @@ const AllNotes = () => {
     return (
         <div className="all-notes-wrapper">
             < StickyNote />
-            < StickyNote />
-            < StickyNote />
+            {/* < StickyNote />
+            < StickyNote /> */}
         </div>
     )
 
