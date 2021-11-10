@@ -1,13 +1,33 @@
 import React from 'react';
 import { useState } from 'react';
+import { useReducer } from 'react/cjs/react.production.min';
+import '../redux/actions/sticky_note_actions'
+// import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
+// import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
 
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
 
+    const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+    // we have access to stickyNoteState and dispatch action
+    
     //sending a request to our redux store
-    const addStickyNote= () => {
+        const addStickyNote = (e) => {
+        e.preventDefault();
 
+        if (stickyNoteInput === null) { // if the note is empty, we don't want to add it
+            return; 
+        }
+
+        //this is what gets typed in the sticky note 
+        const newStickyNote = {
+            id: 1, // give it an id // change this later 
+            text: stickyNoteInput, 
+        };
+
+        //sending this to the redux store with the action we've created
+        dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
     }
 
     return (
@@ -21,9 +41,16 @@ const StickyNote = () => {
                 <button className="add-button">+</button>
             </form>
 
+
             <div className="sticky-note-footer">
                 11/10/11 &nbsp;
-                {stickyNoteInput}
+                {stickyNoteState
+                    .notes.map(note => (
+                        <div>
+                            {note.text}
+                        </div>
+                    ))
+                    }
                 <button className="delete-button">x</button>
             </div>
           
