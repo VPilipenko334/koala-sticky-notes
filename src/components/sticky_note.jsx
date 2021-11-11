@@ -50,9 +50,8 @@ const StickyNote = () => {
                     value={stickyNoteInput}
                     onChange={e => setStickyNoteInput(e.target.value)} >
                 </textarea>
-                <button className="add-button">+</button>
             </form>
-            <br/>
+            <button className="add-button">Add Note</button>
             < UploadPicture />
             <br/>
     

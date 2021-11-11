@@ -3,7 +3,7 @@
 }
 
 .sticky-note-wrapper {
-    background-color: rgb(235, 129, 129);
+    background-color: #f9c74f;
     margin-bottom: 10px; 
     /* border: 10px double #642A11; */
     border: 10px #642A11;
@@ -18,7 +18,7 @@
 }
 
 .sticky-note-footer {
-    background-color: rgb(235, 129, 129);
+    background-color: #f9c74f;
     display: flex; 
     align-items: center;
     justify-content: space-between;
@@ -33,11 +33,20 @@
 }
 
 .add-button {
-    background-color: lavender; 
+    margin-top: 5px;
+    background-color: salmon;  
     cursor: pointer; 
     padding: 5px; 
     outline: none; 
     text-decoration: none;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border: none;
+    color: black; 
+    margin-left: 5px;
+    font-size: 16px;
+    border-radius: 20px;
 }
 
 .add-button:hover {
@@ -57,6 +66,15 @@
     cursor: pointer;
     background-color:rgb(218, 44, 44);
     text-decoration: none;
+    cursor: pointer; 
+    padding: 3px; 
+    outline: none; 
+    text-decoration: none;
+    border: none;
+    color: black; 
+    margin-left: 5px;
+    font-size: 16px;
+    border-radius: 20px;
 }
 
 .delete-button:hover {
@@ -80,15 +98,8 @@ all-notes-wrapper {
     background-color: purple; 
 }
 
-.input-file {
-    /* background-color: green;  */
-    max-width: 100px; 
-    max-height: 100px;
-    cursor: pointer; 
-}
-
-.inut-file {
-  visibility: hidden;
+.inputfile {
+  /* visibility: hidden etc. wont work */
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -96,33 +107,25 @@ all-notes-wrapper {
   position: absolute;
   z-index: -1;
 }
-.inut-file:focus + label {
+.inputfile:focus + label {
   /* keyboard navigation */
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
 }
-.inut-file + label * {
+.inputfile + label * {
   pointer-events: none;
 }
 
-
 .file-upload {
-    /* background-color: #0870d1; */
-    /* // cursor: pointer;
-    // padding-bottom: 5px;  */
-   width: 153px;
-    height: 48px;
-    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, FreeSans, Arial, sansserif;
-    color: #fff;
-    font-weight: 700;
-    /* // padding-top: 20px;  */
-    border: none;
+    width: 150px;
+    height: 30px;
     color: white;
-    border-radius: 100px;
-    /* // font-size: 16px; */
-    /* // margin-top: 0px; */
+    border: none;
+    color: black; 
+    background-color: lavender; 
     margin-left: 5px;
     font-size: 16px;
+    border-radius: 20px;
 }
 
 #id {
@@ -130,7 +133,7 @@ all-notes-wrapper {
 }
 
 .color-change {
-    background-color: rgb(235, 129, 129);
+    background-color: #f9c74f;
 }
 
 .color {
@@ -139,22 +142,22 @@ width: 50px;
 height: 50px;
 margin: 0 1px;
 cursor: pointer;
-border: 2px solid rgb(235, 129, 129);
+border: 2px solid #f9c74f;
 border-radius: 10px; 
 }
 
 .clr1 {
-background-color: #9B0FDB;
+background-color: #90be6d;
 }
 
 .clr2 {
-background-color: #ffea00;
+background-color: #577590;
 }
 
 .clr3 {
-background-color: #04DB53;
+background-color: #f94144;
 }
 
 .clr4 {
-background-color: #0F68DB;
+background-color: #277da1;
 }

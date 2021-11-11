@@ -55,11 +55,12 @@ export class UploadPicture extends React.Component {
     if (this.state.selectForm === 0) {
         return (
                 <div> 
-                    {/* <button className="add-picture">Upload a picture</button> */}
-                    <button className="input-file"><input type="file" onChange={this.handleFile} id="file"></input></button>
+                    <div className="upload-form">
                         <br/>
-                    <button className="add-picture"> Upload Picture </button>
-                    {/* <button className="file-upload"><label htmlFor="file">Select Photos</label></button> */}
+                        <center><button className="inputfile"><input type="file" onChange={this.handleFile} id="file" className="custom-file-input" /></button></center>
+                            
+                        <center><button className="file-upload"><label htmlFor="file">Select Photo</label></button></center>
+                    </div>
                 </div>
             )
         }
