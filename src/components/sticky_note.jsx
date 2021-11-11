@@ -7,14 +7,9 @@ import { UploadPicture } from '../components/picture_form';
 import stickyNoteReducer from '../redux/reducers/sticky_note_reducer';
 
 const StickyNote = () => {
-
-    const initialStickyNoteState = {
-        lastStickyNote: null,
-        totalStickyNotes: 0,
-        allStickyNotes: []
-        }
-
+    
     const [stickyNoteInput, setStickyNoteInput] = useState('')
+    const [stickyNoteColor, setStickyNoteColor] = useState('')
     // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
 
     // we have access to stickyNoteState and dispatch action
