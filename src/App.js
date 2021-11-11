@@ -1,16 +1,23 @@
 import './stylesheets/App.css';
+import { useState } from 'react';
 import './stylesheets/sticky_note.css'
 import AllNotes from './components/all_notes';
+import Header from './components/header'
 
 function App() {
 
+  const [koalaMode, setKoalaMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-wrapper">
-       <h1>Sticky Notes App</h1>
-         {/* <img src="https://media0.giphy.com/media/jxwYHbBbKiXwebfVxt/giphy.gif?cid=790b7611df025f25e025554203527b63f36e2e375db01e9d&rid=giphy.gif&ct=g" height="300" width="300"/> */}
-         < AllNotes />
-      </header>
+    //template string
+    // if koala-mode === true, then add the class .koala-mode
+    <div className={`${koalaMode && 'koala-mode'}`}>
+      <div className="App">
+        <header className="App-wrapper">
+          < Header handleToggleKoalaMode={setKoalaMode} />
+          < AllNotes />
+        </header>
+      </div>
     </div>
   );
 }
