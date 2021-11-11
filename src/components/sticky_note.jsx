@@ -8,20 +8,18 @@ import stickyNoteReducer from '../redux/reducers/sticky_note_reducer';
 
 const StickyNote = () => {
 
+    const initialStickyNoteState = {
+        lastStickyNote: null,
+        totalStickyNotes: 0,
+        allStickyNotes: []
+        }
+
     const [stickyNoteInput, setStickyNoteInput] = useState('')
+    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
 
     // we have access to stickyNoteState and dispatch action
     
 
-
-    const initialStickyNoteState = {
-    lastStickyNote: null,
-    totalStickyNotes: 0,
-    allStickyNotes: []
-    }
-
-    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
-    
     //sending a request to our redux store
         const addStickyNote = (e) => {
         e.preventDefault();
