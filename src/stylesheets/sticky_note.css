@@ -1,3 +1,7 @@
+* {
+    font-family: 'DM Serif Display', serif;
+}
+
 .sticky-note-wrapper {
     background-color: rgb(235, 129, 129);
     margin-bottom: 10px; 
@@ -42,7 +46,7 @@
 
 .note-textarea {
     background-color: rgb(233, 208, 208);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'DM Serif Display', serif;
     max-width: 250px; 
     max-height: 250px;
     width: 250px; 
@@ -129,36 +133,28 @@ all-notes-wrapper {
     background-color: rgb(235, 129, 129);
 }
 
-.color-button {
-    padding: 5px; 
-    border-radius: 20px;
-    margin: 5px;
-    text-decoration: none;
-    cursor: pointer; 
-    width: 100px; 
-    align-items: center;
-    justify-content: center; 
-    /* display: flex;  */
+.color {
+display: table-cell;
+width: 50px;
+height: 50px;
+margin: 0 1px;
+cursor: pointer;
+border: 2px solid rgb(235, 129, 129);
+border-radius: 10px; 
 }
 
-#blue {
-    background-color: blue;
-    cursor: pointer;
-    border: 1px solid blue; 
+.clr1 {
+background-color: #9B0FDB;
 }
 
-#purple {
-    background-color: purple;
-    cursor: pointer;
-    border: 1px solid purple; 
+.clr2 {
+background-color: #ffea00;
 }
-#yellow{
-    background-color: yellow;
-    cursor: pointer;
-    border: 1px solid yellow; 
+
+.clr3 {
+background-color: #04DB53;
 }
-#green {
-    background-color: green;
-    cursor: pointer;
-    border: 1px solid green; 
+
+.clr4 {
+background-color: #0F68DB;
 }

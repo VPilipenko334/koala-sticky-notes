@@ -2,21 +2,25 @@ import React from 'react';
 import { useState } from 'react';
 import { useReducer } from 'react/cjs/react.production.min';
 import '../redux/actions/sticky_note_actions'
-import { stickyNoteReducer } from '../redux/reducers/sticky_note_reducer'
 import { initialStickyNoteState } from '../redux/reducers/sticky_note_reducer'
 import { UploadPicture } from '../components/picture_form';
+import stickyNoteReducer from '../redux/reducers/sticky_note_reducer';
 
 const StickyNote = () => {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('')
-    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+
     // we have access to stickyNoteState and dispatch action
     
+
+
     const initialStickyNoteState = {
     lastStickyNote: null,
     totalStickyNotes: 0,
     allStickyNotes: []
     }
+
+    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
     
     //sending a request to our redux store
         const addStickyNote = (e) => {
@@ -36,7 +40,7 @@ const StickyNote = () => {
         // dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote})
     }
 
-
+ 
 
     return (
         <div className="sticky-note-wrapper">
@@ -55,10 +59,11 @@ const StickyNote = () => {
                 <div><center className="color-change">
                  Choose a sticky-note color: 
                 <br/>
-                <button className="color-button" id="blue">Blue</button>
-                <button className="color-button" id="purple">Purple</button>
-                <button className="color-button" id="yellow">Yellow</button>
-                <button className="color-button" id="green">Green</button>
+                <span id='1' class='color clr1'></span>
+                <span id='2' class='color clr2'></span>
+                <span class='color clr3'></span>
+                <span class='color clr4'></span>
+
                 </center>
             </div>
             <br/>
