@@ -6,8 +6,13 @@
     background-image: url(https://media0.giphy.com/media/jxwYHbBbKiXwebfVxt/giphy.gif?cid=790b7611df025f25e025554203527b63f36e2e375db01e9d&rid=giphy.gif&ct=g);
 }
 
+.koala-mode-button {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
 .sticky-note-wrapper {
-    
     background-color: #f9c74f;
     margin-bottom: 10px; 
     /* border: 10px double #642A11; */

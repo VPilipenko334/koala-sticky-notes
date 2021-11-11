@@ -12,12 +12,10 @@ function App() {
     //template string
     // if koala-mode === true, then add the class .koala-mode
     <div className={`${koalaMode && 'koala-mode'}`}>
-      <div className="App">
         <header className="App-wrapper">
           < Header handleToggleKoalaMode={setKoalaMode} />
           < AllNotes />
         </header>
-      </div>
     </div>
   );
 }
