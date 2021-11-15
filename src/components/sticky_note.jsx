@@ -40,7 +40,7 @@ const StickyNote = () => {
         <div className="sticky-note-wrapper">
             <form onSubmit={addStickyNote} className="note-form">
                 <textarea className="note-textarea" 
-                    placeholder="Add text here..."
+                    placeholder="Add sticky note text here..."
                     value={stickyNoteInput}
                     onChange={e => setStickyNoteInput(e.target.value)} >
                 </textarea>
