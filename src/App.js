@@ -13,8 +13,8 @@ import { addStickyNote, removeStickyNote, removeAllNotes} from './redux/actions/
 import { UploadPicture } from './components/picture_form';
 
 const initialStickyNoteState = {
-        totalStickyNotes: 0,
-        allStickyNotes: []
+        allStickyNotes: [],
+        totalNumberNotes: 0
     }
 
 const stickyNoteReducer = (oldState = {} , action) => {
@@ -23,27 +23,40 @@ const stickyNoteReducer = (oldState = {} , action) => {
     // let newState = Object.assign({}, oldState)
 
     switch(action.type) {
-        case 'ADD_STICKY_NOTE':
+        case 'ADD_STICKY_NOTE': {
             const newState = {
                 allStickyNotes: [oldState.notes, action.payload],
-                totalStickyNotes: oldState.allStickyNotes.length + 1,
+                totalNumberNotes: oldState.allStickyNotes.length + 1,
         };
           console.log(
             'After ADD_STICKY_NOTE: ', newState
             )
           return newState; 
+    }
 
-        case 'REMOVE_STICKY_NOTE':
-            delete newState[action.stickyNoteid]
-            return newState;
-        case 'REMOVE_ALL_NOTES': 
+        case 'REMOVE_STICKY_NOTE': {
+            const newState = {
+              ...oldState,
+              allStickyNotes: oldState.allStickyNotes.filter(stickyNote => stickyNote.id !== action.payload.id),
+              totalNumberNotes: oldState.allStickyNotes.length - 1,
+            };
+              console.log(
+                'After REMOVE_STICKY_NOTE: ', newState
+              )
+              return newState;
+  }
+            // delete newState[action.stickyNoteid]
+            // return newState;
+        case 'REMOVE_ALL_NOTES': {
             return {
                 ...oldState,
-                allStickyNotes: []
+                allStickyNotes: [],
+                totalNumberNotes: 0
             }
+    }
         default:
             return oldState;
-    }
+  }
 }
 
 function App() {
@@ -62,23 +75,22 @@ function App() {
         }
 
     const newStickyNote = {
-      id: 1,
       text: stickyNoteInput
-      //rotate?
+      //rotate if you please
     }
 
     dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote});
     setStickyNoteInput('');
-
 
     }
 
 
       return (
         <div className={`${koalaMode && 'koala-mode'}`}>
-         <header className="App-wrapper">
-          < Header handleToggleKoalaMode={setKoalaMode} />
-        </header>
+          <header className="App-wrapper">
+            < Header handleToggleKoalaMode={setKoalaMode} />
+          </header>
+
         <div className="sticky-note-wrapper">
             <form onSubmit={addStickyNote} className="note-form">
                 <textarea className="note-textarea" 
@@ -88,30 +100,41 @@ function App() {
                 </textarea>
               <button className="add-button">Add Note</button>
             </form>
-            < UploadPicture />
+
+             < UploadPicture />
             <br/>
-    
-                <div><center className="color-change">
+                <div>
+                <center className="color-change">
                  Choose a sticky-note color: 
                 <br/>
-                <span id='1' class='color clr1'></span>
-                <span id='2' class='color clr2'></span>
-                <span class='color clr3'></span>
-                <span class='color clr4'></span>
-
+                <span id='1' className='color clr1'></span>
+                <span id='2' className='color clr2'></span>
+                <span className='color clr3'></span>
+                <span className='color clr4'></span>
                 </center>
             </div>
+
+          
+
             <br/>
+
+            { stickyNoteState.allStickyNotes.map(stickyNote => (
+              <div className="inner-text-sticky-note"
+              // onDragEnd={dropNote}
+              draggable="true"
+              key={stickyNote.id}>
+
+                <button className="delete-button"
+                onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
+                >x</button>
+
+                <div>{stickyNote.text}</div>
+              </div>
+            ))
+            }
+
             <div className="sticky-note-footer">
                 11/10/11 &nbsp; 
-                {/* {stickyNoteState
-                    .notes.map(note => (
-                        <div>
-                            {note.text}
-                        </div>
-                    ))
-                    } */}
-                <button className="delete-button">x</button>
                 <br/>
             </div>
         </div>
