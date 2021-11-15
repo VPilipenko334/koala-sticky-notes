@@ -22,7 +22,6 @@ const stickyNoteReducer = (oldState = {}, action) => {
             const newState = {
                 allStickyNotes: [...oldState.allStickyNotes, action.payload],
                 totalNumberNotes: oldState.allStickyNotes.length + 1,
-                //+1
         };
           console.log(
             'After ADD_STICKY_NOTE: ', newState
@@ -57,7 +56,6 @@ const stickyNoteReducer = (oldState = {}, action) => {
 
 function App() {
 
-  //  const dispatch = useDispatch();
     const [stickyNoteInput, setStickyNoteInput] = useState('');
     const [stickyNoteColor, setStickyNoteColor] = useState('');
     const [koalaMode, setKoalaMode] = useState(false);
@@ -66,8 +64,8 @@ function App() {
   
     const addStickyNote = (e) => {
       e.preventDefault();
-        if (stickyNoteInput === null) {
-          return null; 
+        if (stickyNoteInput === '') {
+          return; 
         }
 
     const newStickyNote = {
@@ -92,43 +90,39 @@ function App() {
                     placeholder="Add sticky note text here..."
                     value={stickyNoteInput}
                     onChange={e => setStickyNoteInput(e.target.value)} >
-                </textarea>
+                </textarea> <br/>
               <button className="add-button">Add Note</button>
             </form>
 
              < UploadPicture />
-            <br/>
-                <div>
-                <center className="color-change">
-                 Choose a sticky-note color: 
-                <br/>
-                <span id='1' className='color clr1'></span>
-                <span id='2' className='color clr2'></span>
-                <span className='color clr3'></span>
-                <span className='color clr4'></span>
-                </center>
-            </div>
 
-          
-
-            <br/>
-
-            { stickyNoteState.allStickyNotes.map(stickyNote => (
+        </div>
+        { stickyNoteState.allStickyNotes.map(stickyNote => (
               <div className="inner-text-sticky-note"
               // onDragEnd={dropNote}
               draggable="true"
               key={stickyNote.id}>
                 
-                <div>{stickyNote.text}</div>
+                <div className="sticky-note-box">{stickyNote.text}
 
                 <button className="delete-button"
                 onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                >x</button>
+                >Clear All</button>
+                <div>
+                  <center className="color-change">
+                  Choose a sticky-note color: 
+                  <br/>
+                    <span id='1' className='color clr1'></span>
+                    <span id='2' className='color clr2'></span>
+                    <span className='color clr3'></span>
+                    <span className='color clr4'></span>
+                  </center>
+                </div>
+              </div>
 
               </div>
             ))
             }
-        </div>
       </div>
     )
 }
