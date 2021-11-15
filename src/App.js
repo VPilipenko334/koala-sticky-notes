@@ -2,12 +2,7 @@ import React from 'react';
 import './stylesheets/App.css';
 import './stylesheets/sticky_note.css'
 import Header from './components/header'
-// import { ADD_STICKY_NOTE,
-//         REMOVE_STICKY_NOTE,
-//         REMOVE_ALL_NOTES
-// } from './redux/actions/sticky_note_actions'
 import { useReducer } from 'react';
-// import { useDispatch } from 'react';
 import { useState } from 'react';
 import { addStickyNote, removeStickyNote, removeAllNotes} from './redux/actions/sticky_note_actions'
 import { UploadPicture } from './components/picture_form';
@@ -17,7 +12,7 @@ const initialStickyNoteState = {
         totalNumberNotes: 0
     }
 
-const stickyNoteReducer = (oldState = {} , action) => {
+const stickyNoteReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
 
     // let newState = Object.assign({}, oldState)
@@ -25,8 +20,9 @@ const stickyNoteReducer = (oldState = {} , action) => {
     switch(action.type) {
         case 'ADD_STICKY_NOTE': {
             const newState = {
-                allStickyNotes: [oldState.notes, action.payload],
+                allStickyNotes: [...oldState.allStickyNotes, action.payload],
                 totalNumberNotes: oldState.allStickyNotes.length + 1,
+                //+1
         };
           console.log(
             'After ADD_STICKY_NOTE: ', newState
@@ -76,7 +72,6 @@ function App() {
 
     const newStickyNote = {
       text: stickyNoteInput
-      //rotate if you please
     }
 
     dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote});
@@ -133,11 +128,6 @@ function App() {
               </div>
             ))
             }
-
-            <div className="sticky-note-footer">
-                11/10/11 &nbsp; 
-                <br/>
-            </div>
         </div>
       </div>
     )
