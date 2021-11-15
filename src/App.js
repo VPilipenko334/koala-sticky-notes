@@ -24,16 +24,16 @@ const stickyNoteReducer = (oldState = {} , action) => {
     let newState = Object.assign({}, oldState)
 
     switch(action.type) {
-        case ADD_STICKY_NOTE:
+        case 'ADD_STICKY_NOTE':
             const newState = {
                 lastStickyNote: new Date().toTimeString.slice(0,8), // use a library maybe?
                 totalStickyNotes: oldState.notes.length + 1,
                 allStickyNotes: [...oldState.notes, action.payload]
         }
-        case REMOVE_STICKY_NOTE:
+        case 'REMOVE_STICKY_NOTE':
             delete newState[action.stickyNoteid]
             return newState;
-        case REMOVE_ALL_NOTES: 
+        case 'REMOVE_ALL_NOTES': 
             return {
                 ...oldState,
                 allStickyNotes: []
@@ -43,16 +43,34 @@ const stickyNoteReducer = (oldState = {} , action) => {
     }
 }
 
-
 function App() {
 
   //  const dispatch = useDispatch();
     const [stickyNoteInput, setStickyNoteInput] = useState('');
     const [stickyNoteColor, setStickyNoteColor] = useState('');
     const [koalaMode, setKoalaMode] = useState(false);
-    // const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
+    const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
 
   
+    const addStickyNote = (e) => {
+      e.preventDefault();
+        if (stickyNoteInput === null) {
+          return null; 
+        }
+
+    const newStickyNote = {
+      id: 1,
+      text: stickyNoteInput
+      //rotate?
+    }
+
+    dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote});
+    setStickyNoteInput('');
+
+
+    }
+
+
       return (
         <div className={`${koalaMode && 'koala-mode'}`}>
          <header className="App-wrapper">
