@@ -4,14 +4,11 @@ export class UploadPicture extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
-        id: "",
-        title: "",
-        description: "",
+        selectForm: 0,
         redirect: false,
         pictureFile: null,
         pictureUrl: null,
-        tError: false,
-        selectForm: 0
+        tError: false
     }
 
     this.handleFile = this.handleFile.bind(this);
@@ -28,28 +25,35 @@ export class UploadPicture extends React.Component {
         const file = e.target.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
+            let picture = new Image();
+            picture.src = e.target.result;
+            picture.onload = function(ev){
+            let canvas = document.getElementById('canvas')
+            let context = canvas.getContext('2d');
+            canvas.width = picture.width;
+            canvas.height = picture.height;           
+            context.drawPicture(picture,0,0);
             this.setState({ pictureFile: file, pictureUrl: fileReader.result, selectForm: 1})
         }
     }
+}
 
     handleSubmit(e) {
-        e.prevenDefault();
         if (this.state.tError === false) {
             const formData = new FormData();
-            formData.append('picture[title]', this.state.title)
-            formData.append('picture[description]', this.state.description)
             formData.append('picture[picture]', this.state.picture)
         }
     }
 
     handleCancel(e) {
         e.preventDefault();
-        this.setState({ selectForm: 0})
+        this.setState({ selectForm: 0 })
     }
+    
 
     render() {
 
-    const PreviewPicture = this.state.pictureUrl ? <img className="preview" height="100" width="100" src={this.state.pictureUrl} /> : null; 
+    // const PreviewPicture = this.state.pictureUrl ? <img className="preview" height="100" width="100" src={this.state.pictureUrl} /> : null; 
 
 
     if (this.state.selectForm === 0) {
@@ -59,7 +63,11 @@ export class UploadPicture extends React.Component {
                         <br/>
                         <center><button className="inputfile"><input type="file" onChange={this.handleFile} id="file" className="custom-file-input" /></button></center>
                             
-                        <center><button className="file-upload"><label htmlFor="file">Select Photo</label></button></center>
+                        <center>
+                            <button className="file-upload"><label htmlFor="file">Select Photo</label></button> <br/><br/>
+                            <button className="cancel-button-form" onClick={this.handleCancel}>Cancel</button>&nbsp; &nbsp; &nbsp; 
+                            <button className="cancel-button-form" type="submit" onClick={this.handleFile}>Upload</button>
+                        </center>
                     </div>
                 </div>
             )
@@ -73,13 +81,14 @@ export class UploadPicture extends React.Component {
                     </label>
                         {/* <form className="upload-form" onSubmit={this.handleSubmit}> */}
     
-                             {PreviewPicture}
-                                    <button className="cancel-button-form" onClick={this.handleCancel}>Cancel</button>&nbsp; &nbsp; &nbsp; 
-                                    <button className="file-upload" type="submit">Upload</button>
+                             {/* {PreviewPicture} */}
+                             <input type="file" id="pictureUpload" className="off" onChange={this.handleFile} accept = "image/*"/>
+                            <label htmlFor="pictureUpload">Upload</label>
+                             <canvas id= "canvas"></canvas>
+                                    
                                </div>
             )
     }
-    
     }
 }
 
