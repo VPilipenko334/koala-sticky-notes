@@ -121,14 +121,15 @@ function App() {
             { stickyNoteState.allStickyNotes.map(stickyNote => (
               <div className="inner-text-sticky-note"
               // onDragEnd={dropNote}
-              draggable="true"
-              key={stickyNote.id}>
+              draggable="true">
+              {/* key={stickyNote.id}> */}
+                
+                {/* <div>{stickyNote.text}</div> */}
 
                 <button className="delete-button"
                 onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
                 >x</button>
 
-                <div>{stickyNote.text}</div>
               </div>
             ))
             }
