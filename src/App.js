@@ -2,10 +2,10 @@ import React from 'react';
 import './stylesheets/App.css';
 import './stylesheets/sticky_note.css'
 import Header from './components/header'
-import { ADD_STICKY_NOTE,
-        REMOVE_STICKY_NOTE,
-        REMOVE_ALL_NOTES
-} from './redux/actions/sticky_note_actions'
+// import { ADD_STICKY_NOTE,
+//         REMOVE_STICKY_NOTE,
+//         REMOVE_ALL_NOTES
+// } from './redux/actions/sticky_note_actions'
 import { useReducer } from 'react';
 // import { useDispatch } from 'react';
 import { useState } from 'react';
@@ -13,7 +13,6 @@ import { addStickyNote, removeStickyNote, removeAllNotes} from './redux/actions/
 import { UploadPicture } from './components/picture_form';
 
 const initialStickyNoteState = {
-        lastStickyNote: null,
         totalStickyNotes: 0,
         allStickyNotes: []
     }
@@ -21,15 +20,19 @@ const initialStickyNoteState = {
 const stickyNoteReducer = (oldState = {} , action) => {
     Object.freeze(oldState)
 
-    let newState = Object.assign({}, oldState)
+    // let newState = Object.assign({}, oldState)
 
     switch(action.type) {
         case 'ADD_STICKY_NOTE':
             const newState = {
-                lastStickyNote: new Date().toTimeString.slice(0,8), // use a library maybe?
-                totalStickyNotes: oldState.notes.length + 1,
-                allStickyNotes: [...oldState.notes, action.payload]
-        }
+                allStickyNotes: [oldState.notes, action.payload],
+                totalStickyNotes: oldState.allStickyNotes.length + 1,
+        };
+          console.log(
+            'After ADD_STICKY_NOTE: ', newState
+            )
+          return newState; 
+
         case 'REMOVE_STICKY_NOTE':
             delete newState[action.stickyNoteid]
             return newState;
@@ -83,8 +86,8 @@ function App() {
                     value={stickyNoteInput}
                     onChange={e => setStickyNoteInput(e.target.value)} >
                 </textarea>
+              <button className="add-button">Add Note</button>
             </form>
-            <button className="add-button">Add Note</button>
             < UploadPicture />
             <br/>
     
