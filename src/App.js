@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './stylesheets/App.css';
 import './stylesheets/sticky_note.css'
 import Header from './components/header'
@@ -40,13 +41,16 @@ const stickyNoteReducer = (oldState = {}, action) => {
               return newState;
   }
           
-            
         case 'REMOVE_ALL_NOTES': {
-            return {
-                ...oldState,
-                allStickyNotes: [],
-                totalNumberNotes: 0
+            const newState = {
+              ...oldState, 
+              allStickyNotes: [],
+              totalNumberNotes: 0
             }
+            console.log(
+              'After REMOVE_ALL_NOTES: ', newState
+            )
+            return newState;
     }
         default:
             return oldState;
@@ -68,7 +72,7 @@ function App() {
         }
 
     const newStickyNote = {
-      id: '',
+      id: uuidv4(),
       text: stickyNoteInput,
       // backgroundColor: color
     }
@@ -128,7 +132,7 @@ function App() {
 
                   <button className="delete-button"
                   onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                  >Clear All</button>
+                  >X</button>
                   <div>
                     <center className="color-change">
                     Choose a sticky-note color: 
@@ -144,6 +148,9 @@ function App() {
                 </div>
               ))
               }
+              <button className="clear-all-notes"
+              onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
+              > Clear All notes </button>
         </div>
       </div>
     )
