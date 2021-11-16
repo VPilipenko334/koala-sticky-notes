@@ -81,19 +81,19 @@ function App() {
     }
 
 
-    const handleDropNote = (e) => {
+    const handleDrag = (e) => {
       e.preventDefault();
       e.stopPropagation();
     }
 
-    const handleDragOver = (e) => {
+    const handleDrop = (e) => {
       e.preventDefault();
       e.target.style.left = `${e.pageX - 50}px`;
       e.target.style.top = `${e.pageY - 50}px`;
     }
 
       return (
-        <div onDragOver={handleDragOver}>
+        <div onDragOver={handleDrag}>
           <div className="App">
             <div className={`${koalaMode && 'koala-mode'}`}>
               <header className="App-wrapper">
@@ -128,7 +128,7 @@ function App() {
                   key={stickyNote.id}>
                     <div id="sticky-note-box"
                     draggable="true"
-                    onDragEnd={handleDropNote}
+                    onDrop={handleDrop}
                     >{stickyNote.text}
 
                     {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}

@@ -1,4 +1,4 @@
-/* .image-preview {
-  height: 150px;
-  width: 150px;
-} */
+#preview {
+  max-width: 100px;
+  max-height: 100px;
+}

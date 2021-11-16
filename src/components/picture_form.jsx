@@ -28,11 +28,12 @@ class DisplayImage extends React.Component {
            
             <label class="upload-btn">
             <input type="file" id="input-file" onChange={this.onImageChange} />
-            <span id="selectedFileName">Upload Picture</span>
+            <span id="selectedFileName" className="upload-image">Upload Picture</span>
             </label>
 
-            <img src={this.state.image} className="image-preview" />
-
+            <div className="image" >
+              <img src={this.state.image} draggable="true" id="preview"/>
+            </div>
           </div>
         </div>
       </div>
