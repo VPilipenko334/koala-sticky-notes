@@ -1,6 +1,5 @@
 * {
     font-family: 'DM Serif Display', serif;
-    /* background-color: whitesmoke;  */
 }
 
 .App-wrapper {
@@ -43,10 +42,6 @@ html {
 
 .koala-mode {
   background: url(https://media0.giphy.com/media/jxwYHbBbKiXwebfVxt/giphy.gif?cid=790b7611df025f25e025554203527b63f36e2e375db01e9d&rid=giphy.gif&ct=g); 
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
 }
 
 h2 {
@@ -54,7 +49,6 @@ h2 {
 }
 
 .sticky-note-wrapper {
-    /* background-color: #f9c74f; */
     background-color: #fff2b2;
     margin-bottom: 10px; 
     margin-left: 10px; 
@@ -78,7 +72,6 @@ h2 {
 }
 
 .note-form {
-    /* background-color: rgb(235, 129, 129); */
     display: flex; 
     flex-direction: row; 
     width: 200px; 
@@ -122,7 +115,6 @@ h2 {
     background-color:#f4acb7;
     text-decoration: none;
     cursor: pointer; 
-    /* padding: 3px;  */
     outline: none; 
     text-decoration: none;
     border: none;
@@ -181,42 +173,6 @@ all-notes-wrapper {
     cursor: pointer; 
 }
 
-.inputfile {
-  /* visibility: hidden etc. wont work */
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.inputfile:focus + label {
-  /* keyboard navigation */
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
-}
-.inputfile + label * {
-  pointer-events: none;
-}
-
-.file-upload {
-    width: 150px;
-    cursor: pointer; 
-    height: 30px;
-    border: none;
-    color: black; 
-    background-color: #f4acb7; 
-    margin-left: 5px;
-    font-size: 16px;
-    border-radius: 20px;
-}
-
-.file-upload:hover {
-  cursor: pointer; 
-  background-color: rgb(218, 44, 44);
-}
-
-
 #sticky-note-box {
     background-color: #caf0f8; 
     width: 200px;
@@ -262,7 +218,6 @@ all-notes-wrapper {
     border-radius: 20px;
     
 }
-
 .upload-btn:hover {
     background-color: rgb(218, 44, 44);;
     cursor: pointer;

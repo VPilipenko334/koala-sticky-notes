@@ -131,8 +131,6 @@ function App() {
                     onDrop={handleDrop}
                     >{stickyNote.text}
 
-                    {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}
-
                     <button className="delete-button"
                             onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
                           >Delete Note</button>
