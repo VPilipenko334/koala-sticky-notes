@@ -57,7 +57,7 @@ const stickyNoteReducer = (oldState = {}, action) => {
   }
 }
 
-function App(props) {
+function App() {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('');
     const [koalaMode, setKoalaMode] = useState(false);
@@ -81,63 +81,66 @@ function App(props) {
     }
 
 
-    const dragSticky = (e) => {
+    const handleDropNote = (e) => {
       e.preventDefault();
       e.stopPropagation();
     }
 
-    const dropSticky = (e) => {
+    const handleDragOver = (e) => {
+      e.preventDefault();
       e.target.style.left = `${e.pageX - 50}px`;
       e.target.style.top = `${e.pageY - 50}px`;
     }
 
-
       return (
-        <div className="App" onDragOver={dragSticky}>
-          <div className={`${koalaMode && 'koala-mode'}`}>
-            <header className="App-wrapper">
-              < Header handleToggleKoalaMode={setKoalaMode} />
+        <div onDragOver={handleDragOver}>
+          <div className="App">
+            <div className={`${koalaMode && 'koala-mode'}`}>
+              <header className="App-wrapper">
+                < Header handleToggleKoalaMode={setKoalaMode} />
 
-                <div className="clear-all-button-wrapper">
-                <button className="outside-button"
-                onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
-                > Clear All Notes </button>
-                </div>
+                  <div className="clear-all-button-wrapper">
+                  <button className="outside-button"
+                  onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
+                  > Clear All Notes </button>
+                  </div>
 
-            </header>
+              </header>
 
-          <div className="sticky-note-wrapper">
-              <form onSubmit={addStickyNote} className="note-form">
-                  <textarea className="note-textarea" 
-                      placeholder="Add sticky note text here..."
-                      value={stickyNoteInput}
-                      onChange={e => setStickyNoteInput(e.target.value)} >
-                  </textarea> <br/>
-                  <br/>
-                <button className="add-button">Add Note</button>
-              </form>
-              Total Sticky Notes: {stickyNoteState.totalNumberNotes}
-              < DisplayImage />
+            <div className="sticky-note-wrapper">
+                <form onSubmit={addStickyNote} className="note-form">
+                    <textarea className="note-textarea" 
+                        placeholder="Add sticky note text here..."
+                        value={stickyNoteInput}
+                        onChange={e => setStickyNoteInput(e.target.value)} >
+                    </textarea> <br/>
+                    <br/>
+                  <button className="add-button">Add Note</button>
+                </form>
+                Total Sticky Notes: {stickyNoteState.totalNumberNotes}
+                < DisplayImage />
 
+            </div>
+
+            { stickyNoteState.allStickyNotes.map(stickyNote => (
+                  
+                  <div 
+                  key={stickyNote.id}>
+                    <div id="sticky-note-box"
+                    draggable="true"
+                    onDragEnd={handleDropNote}
+                    >{stickyNote.text}
+
+                    {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}
+
+                    <button className="delete-button"
+                            onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
+                          >Delete Note</button>
+                  </div>
+                  </div>
+                ))
+                }
           </div>
-          { stickyNoteState.allStickyNotes.map(stickyNote => (
-                
-                <div 
-                key={stickyNote.id}>
-                  <div id="sticky-note-box"
-                  draggable="true"
-                  onDragEnd={dropSticky}
-                  >{stickyNote.text}
-
-                  {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}
-
-                  <button className="delete-button"
-                          onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                        >Delete Note</button>
-                </div>
-                </div>
-              ))
-              }
         </div>
       </div>
     )

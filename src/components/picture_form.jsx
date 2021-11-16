@@ -31,7 +31,7 @@ class DisplayImage extends React.Component {
             <span id="selectedFileName">Upload Picture</span>
             </label>
 
-            <img src={this.state.image} />
+            <img src={this.state.image} className="image-preview" />
 
           </div>
         </div>
