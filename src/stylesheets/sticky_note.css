@@ -14,7 +14,7 @@
 
 .sticky-note-wrapper {
     /* background-color: #f9c74f; */
-    background-color: #ffe566;
+    background-color: #fff2b2;
     margin-bottom: 10px; 
     border: 10px #642A11;
     border-radius: 20px;
@@ -43,7 +43,7 @@
 
 .add-button {
     margin-top: 5px;
-    background-color: salmon;  
+    background-color: #f4acb7;  
     cursor: pointer; 
     padding: 5px; 
     outline: none; 
@@ -63,8 +63,7 @@
 }
 
 .note-textarea {
-    /* background-color: rgb(233, 208, 208); */
-    background-color: whitesmoke; 
+    background-color: whitesmoke;
     font-family: 'DM Serif Display', serif;
     max-width: 200px; 
     max-height: 200px;
@@ -74,7 +73,7 @@
 
 .delete-button {
     cursor: pointer;
-    background-color:salmon;
+    background-color:#f4acb7;
     text-decoration: none;
     cursor: pointer; 
     /* padding: 3px;  */
@@ -98,7 +97,7 @@ all-notes-wrapper {
 }
 
 .add-picture {
-    background-color: salmon; 
+    background-color: #f4acb7; 
     border: 10px #642A11;
     border-radius: 20px;  
     cursor: pointer; 
@@ -109,7 +108,7 @@ all-notes-wrapper {
 }
 
 .outside-button {
-    background-color: salmon;  
+    background-color: #f4acb7;  
     cursor: pointer; 
     padding: 5px; 
     outline: none; 
@@ -154,7 +153,7 @@ all-notes-wrapper {
     height: 30px;
     border: none;
     color: black; 
-    background-color: salmon; 
+    background-color: #f4acb7; 
     margin-left: 5px;
     font-size: 16px;
     border-radius: 20px;
