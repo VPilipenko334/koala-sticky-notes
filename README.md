@@ -1,71 +1,30 @@
-# Getting Started with Create React App
+# Koala Sticky Notes App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sticky Note: A fixed sized box with a colored background that contains text. 
 
-## Available Scripts
+<img width="1387" alt="Screen Shot 2021-11-16 at 1 20 52 PM" src="https://user-images.githubusercontent.com/63820576/142067579-3433c471-f41c-4be5-abc3-4fe6e3ee655f.png">
 
-In the project directory, you can run:
+<img width="1413" alt="Screen Shot 2021-11-16 at 11 43 30 AM" src="https://user-images.githubusercontent.com/63820576/142067399-1cee7c75-2f0a-4a1f-9642-8a464331da48.png">
+The app is also able to handle long paragraphs of text; where the text will be contained in the sticky note and the sticky note will become scrollable. 
 
-### `npm start`
+<img width="1436" alt="Screen Shot 2021-11-16 at 1 15 52 PM" src="https://user-images.githubusercontent.com/63820576/142067302-68ae92ed-c9fc-4c86-a3b6-ece1ac08e178.png">
+There is also a button on top of the page, called Koala Mode, when clicked, will toggle the background to dancing Koalas. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## A user should be able to: 
+- [x] Add a Sticky Note anywhere on the screen. 
+- [ ] Drag and Drop Sticky Note. {working on the backend/ DevTools portion but not rendering on to the interface// currently fixing!!}
+- [x] Delete a Sticky Note. 
+- [x] Set the text contained in a sticky note (either at creation or after).
+- [x] Clear the canvas of all Sticky Notes. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Bonus Feature: 
+- [x] Toggled Background change 
+- [x] Able to upload an image 
 
-### `npm test`
+## Upcoming Features: 
+- [ ] Be able to draw on a canvas and then add it to the Sticky Note. 
+- [ ] Persistence: Persist the state of the board when it's modified and restore it when the User opens the same link again. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# koala-sticky-notes
+## Technologies Used: 
+- React 
+- Redux 
