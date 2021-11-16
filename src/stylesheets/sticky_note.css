@@ -1,15 +1,48 @@
 * {
     font-family: 'DM Serif Display', serif;
+    /* background-color: whitesmoke;  */
 }
 
-.koala-mode {
-    background-image: url(https://media0.giphy.com/media/jxwYHbBbKiXwebfVxt/giphy.gif?cid=790b7611df025f25e025554203527b63f36e2e375db01e9d&rid=giphy.gif&ct=g);
+.App-wrapper {
+    height: 100%; 
+    background-color: whitesmoke;
+}
+
+#root {
+    height: 100%; 
+    width: 100%; 
+    background-color: #F3F2F0; 
+}
+
+.header {
+    background-color: #F3F2F0;
+}
+
+.App {
+  background-color: #F3F2F0; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+} 
+
+html {
+    background-color: #F3F2F0; 
 }
 
 .koala-mode-button {
     display: flex;
     align-items: center; 
     margin-bottom: 20px;
+}
+
+.koala-mode {
+  background: url(https://media0.giphy.com/media/jxwYHbBbKiXwebfVxt/giphy.gif?cid=790b7611df025f25e025554203527b63f36e2e375db01e9d&rid=giphy.gif&ct=g); 
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
 }
 
 .sticky-note-wrapper {
