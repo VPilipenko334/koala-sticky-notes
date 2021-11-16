@@ -138,10 +138,6 @@ all-notes-wrapper {
     border-radius: 20px;
 }
 
-#id {
-    background-color: yellow;
-}
-
 .color {
     display: table-cell;
     width: 50px;
@@ -151,19 +147,19 @@ all-notes-wrapper {
     border-radius: 10px; 
 }
 
-.clr1 {
+.green {
     background-color: #90be6d;
 }
 
-.clr2 {
-    background-color: #577590;
+.purple{
+    background-color: #b5179e;
 }
 
-.clr3 {
+.red {
     background-color: #f94144;
 }
 
-.clr4 {
+.blue {
     background-color: #277da1;
 }
 

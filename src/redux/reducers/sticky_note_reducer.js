@@ -22,9 +22,11 @@
 //                 totalStickyNotes: oldState.notes.length + 1,
 //                 allStickyNotes: [...oldState.notes, action.payload]
 //         }
+//         break;
 //         case REMOVE_STICKY_NOTE:
 //             delete newState[action.stickyNoteid]
 //             return newState;
+//         break;
 //         case REMOVE_ALL_NOTES: 
 //             return {
 //                 ...oldState,

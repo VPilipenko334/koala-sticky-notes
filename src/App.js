@@ -4,7 +4,6 @@ import './stylesheets/sticky_note.css'
 import Header from './components/header'
 import { useReducer } from 'react';
 import { useState } from 'react';
-import { addStickyNote, removeStickyNote, removeAllNotes} from './redux/actions/sticky_note_actions'
 import { UploadPicture } from './components/picture_form';
 
 const initialStickyNoteState = {
@@ -28,7 +27,7 @@ const stickyNoteReducer = (oldState = {}, action) => {
             )
           return newState; 
     }
-
+        
         case 'REMOVE_STICKY_NOTE': {
             const newState = {
               ...oldState,
@@ -40,8 +39,8 @@ const stickyNoteReducer = (oldState = {}, action) => {
               )
               return newState;
   }
-            // delete newState[action.stickyNoteid]
-            // return newState;
+          
+            
         case 'REMOVE_ALL_NOTES': {
             return {
                 ...oldState,
@@ -69,60 +68,82 @@ function App() {
         }
 
     const newStickyNote = {
-      text: stickyNoteInput
+      id: '',
+      text: stickyNoteInput,
+      // backgroundColor: color
     }
 
     dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote});
     setStickyNoteInput('');
-
     }
+
+    const handleBackgroundColor = (color, e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const colorChange = {
+        backgroundColor: color
+      }
+      
+    }
+
+    const dragSticky = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // const dropSticky= (e) => {
+    //   e.target.style.left = `${e.pageX - 50}px`;
+    //   e.target.style.top = `${e.pageY - 50}px`;
+    // }
 
 
       return (
-        <div className={`${koalaMode && 'koala-mode'}`}>
-          <header className="App-wrapper">
-            < Header handleToggleKoalaMode={setKoalaMode} />
-          </header>
+        <div className="App" onDragOver={dragSticky}>
+          <div className={`${koalaMode && 'koala-mode'}`}>
+            <header className="App-wrapper">
+              < Header handleToggleKoalaMode={setKoalaMode} />
+            </header>
 
-        <div className="sticky-note-wrapper">
-            <form onSubmit={addStickyNote} className="note-form">
-                <textarea className="note-textarea" 
-                    placeholder="Add sticky note text here..."
-                    value={stickyNoteInput}
-                    onChange={e => setStickyNoteInput(e.target.value)} >
-                </textarea> <br/>
-              <button className="add-button">Add Note</button>
-            </form>
+          <div className="sticky-note-wrapper">
+              <form onSubmit={addStickyNote} className="note-form">
+                  <textarea className="note-textarea" 
+                      placeholder="Add sticky note text here..."
+                      value={stickyNoteInput}
+                      onChange={e => setStickyNoteInput(e.target.value)} >
+                  </textarea> <br/>
+                <button className="add-button">Add Note</button>
+              </form>
 
-             < UploadPicture />
+              < UploadPicture />
 
-        </div>
-        { stickyNoteState.allStickyNotes.map(stickyNote => (
-              <div className="inner-text-sticky-note"
-              // onDragEnd={dropNote}
-              draggable="true"
-              key={stickyNote.id}>
-                
-                <div className="sticky-note-box">{stickyNote.text}
+          </div>
+          { stickyNoteState.allStickyNotes.map(stickyNote => (
+                <div className='inner-text-sticky-note'
+                key={stickyNote.id}
+                // onDragEnd={dropSticky}
+                draggable="true">
+                  
+                  <div className="sticky-note-box">{stickyNote.text}
 
-                <button className="delete-button"
-                onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                >Clear All</button>
-                <div>
-                  <center className="color-change">
-                  Choose a sticky-note color: 
-                  <br/>
-                    <span id='1' className='color clr1'></span>
-                    <span id='2' className='color clr2'></span>
-                    <span className='color clr3'></span>
-                    <span className='color clr4'></span>
-                  </center>
+                  <button className="delete-button"
+                  onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
+                  >Clear All</button>
+                  <div>
+                    <center className="color-change">
+                    Choose a sticky-note color: 
+                    <br/>
+                      <span className='color green' onClick={handleBackgroundColor.bind(this, 'green')}></span>
+                      <span className='color purple' onClick={handleBackgroundColor.bind(this, 'purple')}></span>
+                      <span className='color red' onClick={handleBackgroundColor.bind(this, 'red')}></span>
+                      <span className='color blue' onClick={handleBackgroundColor.bind(this, 'blue')}></span>
+                    </center>
+                  </div>
                 </div>
-              </div>
 
-              </div>
-            ))
-            }
+                </div>
+              ))
+              }
+        </div>
       </div>
     )
 }
