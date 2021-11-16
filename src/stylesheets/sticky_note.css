@@ -13,13 +13,12 @@
 }
 
 .sticky-note-wrapper {
-    background-color: #f9c74f;
+    /* background-color: #f9c74f; */
+    background-color: #ffe566;
     margin-bottom: 10px; 
-    /* border: 10px double #642A11; */
     border: 10px #642A11;
     border-radius: 20px;
     padding: 1rem; 
-    /* min-height: 200px;  */
     max-width: 200px;
     align-items: center;
     justify-content: space-between;
@@ -60,11 +59,12 @@
 }
 
 .add-button:hover {
-    background-color: purple;
+    background-color: rgb(218, 44, 44);
 }
 
 .note-textarea {
-    background-color: rgb(233, 208, 208);
+    /* background-color: rgb(233, 208, 208); */
+    background-color: whitesmoke; 
     font-family: 'DM Serif Display', serif;
     max-width: 200px; 
     max-height: 200px;
@@ -74,10 +74,10 @@
 
 .delete-button {
     cursor: pointer;
-    background-color:rgb(218, 44, 44);
+    background-color:salmon;
     text-decoration: none;
     cursor: pointer; 
-    padding: 3px; 
+    /* padding: 3px;  */
     outline: none; 
     text-decoration: none;
     border: none;
@@ -88,7 +88,7 @@
 }
 
 .delete-button:hover {
-    background-color: lavender;
+    background-color: rgb(218, 44, 44);
 }
 
 all-notes-wrapper {
@@ -98,14 +98,36 @@ all-notes-wrapper {
 }
 
 .add-picture {
-    background-color: lavender; 
+    background-color: salmon; 
     border: 10px #642A11;
     border-radius: 20px;  
     cursor: pointer; 
 }
 
 .add-picture:hover {
-    background-color: purple; 
+    background-color: rgb(218, 44, 44); 
+}
+
+.outside-button {
+    background-color: salmon;  
+    cursor: pointer; 
+    padding: 5px; 
+    outline: none; 
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border: none;
+    color: black; 
+    margin-left: 5px;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.clear-all-notes:hover {
+    background-color: rgb(218, 44, 44);
+    cursor: pointer; 
 }
 
 .inputfile {
@@ -128,14 +150,19 @@ all-notes-wrapper {
 
 .file-upload {
     width: 150px;
+    cursor: pointer; 
     height: 30px;
-    color: white;
     border: none;
     color: black; 
-    background-color: lavender; 
+    background-color: salmon; 
     margin-left: 5px;
     font-size: 16px;
     border-radius: 20px;
+}
+
+.file-upload:hover {
+    background-color: rgb(218, 44, 44);
+    cursor: pointer; 
 }
 
 .color {
@@ -177,4 +204,12 @@ all-notes-wrapper {
     display: flex; 
     margin-bottom: 10px;
     flex-direction: column;
+}
+
+.cancel-button {
+    background-color: lavender; 
+}
+
+.upload-button {
+    background-color: lavender; 
 }

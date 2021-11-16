@@ -115,6 +115,7 @@ function App() {
                       value={stickyNoteInput}
                       onChange={e => setStickyNoteInput(e.target.value)} >
                   </textarea> <br/>
+                  <br/>
                 <button className="add-button">Add Note</button>
               </form>
 
@@ -130,9 +131,7 @@ function App() {
                   onDragEnd={dropSticky}
                   >{stickyNote.text}
 
-                  <button className="delete-button"
-                  onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                  >X</button>
+                  
                   <div>
                     <center className="color-change">
                     Choose a sticky-note color: 
@@ -140,7 +139,12 @@ function App() {
                       <span className='color green' onClick={handleBackgroundColor.bind(this, 'green')}></span>
                       <span className='color purple' onClick={handleBackgroundColor.bind(this, 'purple')}></span>
                       <span className='color red' onClick={handleBackgroundColor.bind(this, 'red')}></span>
-                      <span className='color blue' onClick={handleBackgroundColor.bind(this, 'blue')}></span>
+                      <span className='color blue' onClick={handleBackgroundColor.bind(this, 'blue')}></span> <br/>
+                       
+                        <button className="delete-button"
+                          onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
+                        >Delete note</button>
+
                     </center>
                   </div>
                 </div>
@@ -148,7 +152,7 @@ function App() {
                 </div>
               ))
               }
-              <button className="clear-all-notes"
+              <button className="outside-button"
               onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
               > Clear All notes </button>
         </div>

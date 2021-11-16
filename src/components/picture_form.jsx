@@ -65,8 +65,8 @@ export class UploadPicture extends React.Component {
                             
                         <center>
                             <button className="file-upload"><label htmlFor="file">Select Photo</label></button> <br/><br/>
-                            <button className="cancel-button-form" onClick={this.handleCancel}>Cancel</button>&nbsp; &nbsp; &nbsp; 
-                            <button className="cancel-button-form" type="submit" onClick={this.handleFile}>Upload</button>
+                            {/* <button className="cancel-button" onClick={this.handleCancel}>Cancel</button>&nbsp; &nbsp; &nbsp; 
+                            <button className="upload-button" type="submit" onClick={this.handleFile}>Upload</button> */}
                         </center>
                     </div>
                 </div>
