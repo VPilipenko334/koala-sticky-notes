@@ -53,6 +53,8 @@ html {
     border-radius: 20px;
     padding: 1rem; 
     max-width: 200px;
+    max-height: 250px;
+    height: 200px; 
     align-items: center;
     justify-content: space-between;
     display: flex; 

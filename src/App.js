@@ -5,7 +5,7 @@ import './stylesheets/sticky_note.css'
 import Header from './components/header'
 import { useReducer } from 'react';
 import { useState } from 'react';
-import { UploadPicture } from './components/picture_form';
+import DisplayImage from './components/picture_form';
 import ColorsToggle from './components/colors_toggle';
 
 const initialStickyNoteState = {
@@ -58,11 +58,15 @@ const stickyNoteReducer = (oldState = {}, action) => {
   }
 }
 
-function App() {
+function App(props) {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('');
     const [stickyNoteColor, setStickyNoteColor] = useState('');
     const [koalaMode, setKoalaMode] = useState(false);
+    // const [green, setGreen] = useState(false);
+    // const [purple, setPurple] = useState(false);
+    // const [red, setRed] = useState(false);
+    // const [blue, setBlue] = useState(false);
     const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
 
   
@@ -75,6 +79,7 @@ function App() {
     const newStickyNote = {
       id: uuidv4(),
       text: stickyNoteInput,
+      image: null
       // backgroundColor: color
     }
 
@@ -119,8 +124,8 @@ function App() {
                   <br/>
                 <button className="add-button">Add Note</button>
               </form>
-
-              < UploadPicture />
+              Total Sticky Notes: {stickyNoteState.totalNumberNotes}
+              {/* < DisplayImage /> */}
 
           </div>
           { stickyNoteState.allStickyNotes.map(stickyNote => (
@@ -132,7 +137,10 @@ function App() {
                   onDragEnd={dropSticky}
                   >{stickyNote.text}
 
+                  {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}
+
                   <ColorsToggle />
+                  
 
                   <button className="delete-button"
                           onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
