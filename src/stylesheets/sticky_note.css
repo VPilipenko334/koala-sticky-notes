@@ -113,6 +113,8 @@ h2 {
     max-height: 200px;
     width: 200px; 
     height: 100px;
+    outline: none; 
+    overflow: hidden;
 }
 
 .delete-button {
@@ -233,6 +235,10 @@ all-notes-wrapper {
     margin-bottom: 25px;
     margin-top: 20px; 
     margin-left: 10px; 
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow: scroll;
 }
 
 #input-file {
@@ -260,4 +266,4 @@ all-notes-wrapper {
 .upload-btn:hover {
     background-color: rgb(218, 44, 44);;
     cursor: pointer;
-    }
+}
