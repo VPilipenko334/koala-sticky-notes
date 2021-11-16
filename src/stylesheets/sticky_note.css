@@ -19,7 +19,7 @@
     border: 10px #642A11;
     border-radius: 20px;
     padding: 1rem; 
-    min-height: 200px; 
+    /* min-height: 200px;  */
     max-width: 200px;
     align-items: center;
     justify-content: space-between;
@@ -167,6 +167,8 @@ all-notes-wrapper {
     background-color: pink; 
     width: 200px;
     height: 200px;
+    max-height: 200px;
+    max-width: 200px;
     border: 10px #642A11;
     border-radius: 20px;
     padding: 1rem;

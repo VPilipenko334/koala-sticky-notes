@@ -91,10 +91,10 @@ function App() {
       e.stopPropagation();
     }
 
-    // const dropSticky= (e) => {
-    //   e.target.style.left = `${e.pageX - 50}px`;
-    //   e.target.style.top = `${e.pageY - 50}px`;
-    // }
+    const dropSticky = (e) => {
+      e.target.style.left = `${e.pageX - 50}px`;
+      e.target.style.top = `${e.pageY - 50}px`;
+    }
 
 
       return (
@@ -118,12 +118,13 @@ function App() {
 
           </div>
           { stickyNoteState.allStickyNotes.map(stickyNote => (
-                <div className='inner-text-sticky-note'
-                key={stickyNote.id}
-                // onDragEnd={dropSticky}
-                draggable="true">
+                <div 
+                key={stickyNote.id}>
                   
-                  <div className="sticky-note-box">{stickyNote.text}
+                  <div className="sticky-note-box"
+                  draggable="true"
+                  onDragEnd={dropSticky}
+                  >{stickyNote.text}
 
                   <button className="delete-button"
                   onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
