@@ -6,6 +6,7 @@ import Header from './components/header'
 import { useReducer } from 'react';
 import { useState } from 'react';
 import { UploadPicture } from './components/picture_form';
+import ColorsToggle from './components/colors_toggle';
 
 const initialStickyNoteState = {
         allStickyNotes: [],
@@ -131,22 +132,11 @@ function App() {
                   onDragEnd={dropSticky}
                   >{stickyNote.text}
 
-                  
-                  <div>
-                    <center className="color-change">
-                    Choose a sticky-note color: 
-                    <br/>
-                      <span className='color green' onClick={handleBackgroundColor.bind(this, 'green')}></span>
-                      <span className='color purple' onClick={handleBackgroundColor.bind(this, 'purple')}></span>
-                      <span className='color red' onClick={handleBackgroundColor.bind(this, 'red')}></span>
-                      <span className='color blue' onClick={handleBackgroundColor.bind(this, 'blue')}></span> <br/>
-                       
-                        <button className="delete-button"
-                          onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
-                        >Delete note</button>
+                  <ColorsToggle />
 
-                    </center>
-                  </div>
+                  <button className="delete-button"
+                          onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
+                        >Delete Note</button>
                 </div>
 
                 </div>
@@ -154,7 +144,7 @@ function App() {
               }
               <button className="outside-button"
               onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
-              > Clear All notes </button>
+              > Clear All Notes </button>
         </div>
       </div>
     )

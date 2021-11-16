@@ -117,6 +117,8 @@ html {
     margin-left: 5px;
     font-size: 16px;
     border-radius: 20px;
+    align-items: center; 
+    justify-content: center; 
 }
 
 .delete-button:hover {

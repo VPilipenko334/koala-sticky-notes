@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ handleToggleKoalaMode,  }) => {
+const Header = ({ handleToggleKoalaMode  }) => {
     return (
         <div className="header">
         <h2>Sticky Notes App </h2>
