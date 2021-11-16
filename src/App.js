@@ -6,7 +6,6 @@ import Header from './components/header'
 import { useReducer } from 'react';
 import { useState } from 'react';
 import DisplayImage from './components/picture_form';
-import ColorsToggle from './components/colors_toggle';
 
 const initialStickyNoteState = {
         allStickyNotes: [],
@@ -61,12 +60,7 @@ const stickyNoteReducer = (oldState = {}, action) => {
 function App(props) {
 
     const [stickyNoteInput, setStickyNoteInput] = useState('');
-    const [stickyNoteColor, setStickyNoteColor] = useState('');
     const [koalaMode, setKoalaMode] = useState(false);
-    // const [green, setGreen] = useState(false);
-    // const [purple, setPurple] = useState(false);
-    // const [red, setRed] = useState(false);
-    // const [blue, setBlue] = useState(false);
     const [stickyNoteState, dispatch] = useReducer(stickyNoteReducer, initialStickyNoteState )
 
   
@@ -80,21 +74,12 @@ function App(props) {
       id: uuidv4(),
       text: stickyNoteInput,
       image: null
-      // backgroundColor: color
     }
 
     dispatch({ type: 'ADD_STICKY_NOTE', payload: newStickyNote});
     setStickyNoteInput('');
     }
 
-    const handleBackgroundColor = (color, e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const colorChange = {
-        backgroundColor: color
-      }
-      
-    }
 
     const dragSticky = (e) => {
       e.preventDefault();
@@ -112,6 +97,13 @@ function App(props) {
           <div className={`${koalaMode && 'koala-mode'}`}>
             <header className="App-wrapper">
               < Header handleToggleKoalaMode={setKoalaMode} />
+
+                <div className="clear-all-button-wrapper">
+                <button className="outside-button"
+                onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
+                > Clear All Notes </button>
+                </div>
+
             </header>
 
           <div className="sticky-note-wrapper">
@@ -125,47 +117,30 @@ function App(props) {
                 <button className="add-button">Add Note</button>
               </form>
               Total Sticky Notes: {stickyNoteState.totalNumberNotes}
-              {/* < DisplayImage /> */}
+              < DisplayImage />
 
           </div>
           { stickyNoteState.allStickyNotes.map(stickyNote => (
+                
                 <div 
                 key={stickyNote.id}>
-                  
-                  <div className="sticky-note-box"
+                  <div id="sticky-note-box"
                   draggable="true"
                   onDragEnd={dropSticky}
                   >{stickyNote.text}
 
                   {/* <img src={this.props.ImageUrl} height="100" width="100" /> */}
 
-                  <ColorsToggle />
-                  
-
                   <button className="delete-button"
                           onClick={() => dispatch({ type: 'REMOVE_STICKY_NOTE', payload: stickyNote})}
                         >Delete Note</button>
                 </div>
-
                 </div>
               ))
               }
-              <button className="outside-button"
-              onClick={() => dispatch({ type: 'REMOVE_ALL_NOTES' })}
-              > Clear All Notes </button>
         </div>
       </div>
     )
 }
 
 export default App;
-
-  
-
-
-
-    //template string
-    // if koala-mode === true, then add the class .koala-mode
-    
-     
-   

@@ -24,12 +24,18 @@ class DisplayImage extends React.Component {
     return (
       <div>
         <div>
-          <div>
-            <input type="file" name="myImage" onChange={this.onImageChange} />
-            <img src={this.state.image} height="150" width="200" />
+          <div className="fileUpload">
+            {/* <input type="file" className="upload" name="myImage" onChange={this.onImageChange} /> */}
+            
+            {/* <button className="add-picture" id="upload"> Upload Picture </button> */}
+            
+            <label class="upload-btn">
+            <input type="file" id="input-file" onChange={this.onImageChange} />
+            <span id="selectedFileName">Upload Picture</span>
+            </label>
 
-            {/* <center><button className="inputfile"><input type="file" onChange={this.handleFile} id="file" className="custom-file-input" /></button></center>
-            <button className="upload-button" type="submit" onClick={this.handleFile}>Upload</button> */}
+            <img src={this.state.image} />
+
 
           </div>
         </div>

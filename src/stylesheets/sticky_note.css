@@ -14,6 +14,10 @@
     background-color: #F3F2F0; 
 }
 
+.clear-all-button-wrapper {
+    background-color: #F3F2F0;
+}
+
 .header {
     background-color: #F3F2F0;
 }
@@ -45,10 +49,15 @@ html {
   background-size: cover; */
 }
 
+h2 {
+    margin-left: 40px; 
+}
+
 .sticky-note-wrapper {
     /* background-color: #f9c74f; */
     background-color: #fff2b2;
     margin-bottom: 10px; 
+    margin-left: 10px; 
     border: 10px #642A11;
     border-radius: 20px;
     padding: 1rem; 
@@ -155,10 +164,14 @@ all-notes-wrapper {
     color: white;
     border: none;
     color: black; 
-    margin-left: 5px;
+    margin-left: 50px;
     font-size: 16px;
     border-radius: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.outside-button:hover {
+    background-color: rgb(218, 44, 44);
 }
 
 .clear-all-notes:hover {
@@ -197,36 +210,12 @@ all-notes-wrapper {
 }
 
 .file-upload:hover {
-    background-color: rgb(218, 44, 44);
-    cursor: pointer; 
+  cursor: pointer; 
+  background-color: rgb(218, 44, 44);
 }
 
-.color {
-    display: table-cell;
-    width: 50px;
-    height: 50px;
-    margin: 3px;
-    cursor: pointer;
-    border-radius: 10px; 
-}
 
-.green {
-    background-color: #90be6d;
-}
-
-.purple{
-    background-color: #b5179e;
-}
-
-.red {
-    background-color: #f94144;
-}
-
-.blue {
-    background-color: #277da1;
-}
-
-.sticky-note-box {
+#sticky-note-box {
     background-color: #caf0f8; 
     width: 200px;
     height: 200px;
@@ -238,14 +227,37 @@ all-notes-wrapper {
     align-items: center;
     justify-content: space-between;
     display: flex; 
-    margin-bottom: 10px;
     flex-direction: column;
+    float: left; 
+    margin-right: 30px;
+    margin-bottom: 25px;
+    margin-top: 20px; 
+    margin-left: 10px; 
 }
 
-.cancel-button {
-    background-color: lavender; 
+#input-file {
+    display: none;
+    }
+
+.upload-btn {
+    margin-top: 5px;
+    background-color: #f4acb7;  
+    cursor: pointer; 
+    padding: 5px; 
+    outline: none; 
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border: none;
+    color: black; 
+    margin-left: 5px;
+    font-size: 16px;
+    border-radius: 20px;
+    
 }
 
-.upload-button {
-    background-color: lavender; 
-}
+.upload-btn:hover {
+    background-color: rgb(218, 44, 44);;
+    cursor: pointer;
+    }
